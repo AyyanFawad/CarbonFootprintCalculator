@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+// import Header from './Header';
+import Hero from './Hero';
+import MainContent from './MainContent';
+// import Footer from './Footer';
+import Layout from './Layout';
+import QuestionScreen from './QuestionScreen';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <div>
+    //   <Header />
+
+    //   {/* <MainContent /> */}
+    //   {/* <QuestionScreen /> */}
+    //   <Hero />
+    //   <Footer />
+    // </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact render={() => <Layout><MainContent /></Layout>} />
+        <Route path="/question" render={() => <Layout><QuestionScreen /></Layout>} />
+        <Route path="/hero" render={() => <Layout><Hero /></Layout>} />
+        {/* Add more routes for other pages */}
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
