@@ -85,6 +85,7 @@
   line-height: normal;
   display: flex;
   flex-direction: column;
+  max-width: 50%;
 }
 
 .commute-question button {
@@ -190,10 +191,11 @@ header nav img {
 .global-footprint-image {
   /* Set a specific width or max-width for the image if needed */
   width: 50%;
+  padding-bottom: 20px;
 }
 
 .text-content {
-  text-align: right;
+  text-align: center;
   max-width: 50%;
 }
 
@@ -245,7 +247,7 @@ header nav img {
 /* section 2  */
 .section-with-rectangles {
   position: relative;
-  height: 910px;
+  height: 400px;
   /* Set the height to match the previous section */
   margin: 0 auto;
   /* Centers the content */
@@ -255,32 +257,40 @@ header nav img {
 
 .large-rectangle {
   background-color: #ebf0c066;
-  height: 910px;
+  height: 400px;
   width: 1437px;
   position: absolute;
   top: 0;
   left: 0;
+  /* padding-top: 20px; */
 }
 
 .small-rectangle {
   background-color: #a8d9dd80;
-  height: 909px;
+  height: 400px;
   width: 537px;
   top: 0;
   left: 0;
   position: relative;
+  /* padding-top: 50px; */
 }
 
 .white-box {
-  background-color: #FFFFFF;
-  height: 512px;
-  width: 799px;
+  /* background-color: #FFFFFF; */
+  background-color: #ebf0c066;
+  /* height: 512px;
+  width: 799px; */
+  height: 400px;
+  width: 900px;
+  top: 0px;
+  left: 537px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* padding-top: 50px; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
   /* This centers the box */
-  margin-left: 150px;
+  /* margin-left: 150px; */
   /* Adjust as needed to move box to the right */
 }
 
@@ -289,22 +299,24 @@ header nav img {
   font-family: "Oooh Baby-Regular", Helvetica, sans-serif;
   font-size: 32px;
   font-weight: 400;
-  text-align: right;
+  text-align: left;
   top: 10px;
   /* Adjust as needed */
   right: 10px;
   /* Adjust as needed */
+  padding: 20px;
 }
 
 .small-rectangle .label .reveal-your-IMPACT {
   color: #4c6880;
   font-family: "Open Sans-SemiBold", Helvetica, sans-serif;
   font-size: 50px;
-  font-weight: 600;
-  top: 60px;
+  font-weight: 700;
+  top: 20px;
   /* Adjust as needed */
-  right: 10px;
+  right: 20px;
   /* Adjust as needed */
+  padding: 20px;
 }
 
 
@@ -318,18 +330,22 @@ header nav img {
   line-height: normal;
   top: 0;
   width: 377px;
+  padding-left: 10px;
+  padding-top: 40px;
 }
 
 .white-box .label .text-wrapper {
   color: #5eadb4;
   font-family: "Open Sans-Bold", Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 700;
-  text-align: right;
+  text-align: center;
   top: 20px;
   /* Adjust as needed */
   right: 20px;
   /* Adjust as needed */
+  padding: 20px;
+
 }
 
 .environment-description {
@@ -342,6 +358,7 @@ header nav img {
   line-height: normal;
   top: 0;
   width: 666px;
+  padding-left: 20px;
 }
 
 
@@ -381,7 +398,7 @@ header nav img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 910px;
+  height: 600px;
   /* Same as previous sections */
 }
 
@@ -398,6 +415,7 @@ header nav img {
   line-height: normal;
   top: 0;
   width: 546px;
+  padding-left: 20px;
 }
 
 
@@ -407,12 +425,13 @@ header nav img {
   /* Removed 'position: absolute' from here */
   /* These elements will flow normally within the .glossary-label container */
   color: #008269;
-  font-size: 32px;
+  font-size: 50px;
   /* Adjust as needed */
   font-weight: 400;
   text-align: left;
   /* Adjust text alignment as needed */
   /* Other font styles */
+  padding-left: 40px;
 }
 
 /* Styling for 'Terms' title */
@@ -430,6 +449,7 @@ header nav img {
   height: 508px;
   width: 528px;
   /* This box will take up the remaining space in the flex container */
+  padding-right: 50px;
 }
 
 /* MainContent.css */
@@ -448,15 +468,17 @@ header nav img {
 .gb-image {
   position: absolute;
   /* Adjust the top and left properties to reposition the image */
-  top: -50px;
+  /* top: -50px; */
   /* Example value, adjust as needed */
-  left: -50px;
+  /* left: -50px; */
   /* Move the image to the left; adjust this value as needed */
 
   /* If the image is too large, you can also adjust its size */
   width: 100%;
   /* Adjust the width if necessary */
   height: auto;
+  left: -50px;
+  /* padding-right: 50px; */
   /* Keep the aspect ratio */
 }
 

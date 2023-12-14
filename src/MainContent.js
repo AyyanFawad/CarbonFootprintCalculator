@@ -29,7 +29,7 @@ const MainContent = () => {
         <div className="large-rectangle"></div>
         <div className="small-rectangle">
           <div className="label">
-            <div className="text-wrapper">Self Check</div>
+            {/* <div className="text-wrapper">Self Check</div> */}
             <div className="reveal-your-IMPACT">Reveal your IMPACT</div>
             <p className="calculator-description">
               {'Explore a range of evidence-based online therapies to support your journey to recovery. These self-help resources empower you to manage PTSD symptoms on your terms.'}
@@ -49,8 +49,8 @@ const MainContent = () => {
       <section className="glossary-section">
         <div className="text-content">
           <div className="label glossary-label">
-            <div className="text-wrapper">Glossary</div>
-            <div className="terms-title">Some Terms for You <br></br>to Learn</div>
+            <div className="text-wrapper">Glossary: Some terms for you</div>
+            {/* <div className="terms-title">Some Terms for You <br></br>to Learn</div> */}
             <p className="glossary-description">
               {'Evaluate your emotional health with our self-assessment tools. Gain insight and take steps toward healing.'}
             </p>
@@ -60,7 +60,6 @@ const MainContent = () => {
           </div>
         </div>
         <div className="box">
-          <div className="ellipse"></div>
           <img src={gbImage} alt="GB" className="gb-image" />
         </div>
       </section>
