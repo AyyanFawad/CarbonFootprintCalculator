@@ -61,6 +61,8 @@
   /* Adjust the text color */
 }
 
+
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -71,12 +73,14 @@
   }
 }
 
-.commute-question {
+/* Common styling for both question types */
+.question-container {
   position: absolute;
   top: 30%;
   left: 70%;
   transform: translate(-50%, -50%);
-  color: #256670;
+  /* background-color: #ADE28E; */
+  color: #223949;
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 20px;
@@ -88,7 +92,13 @@
   max-width: 50%;
 }
 
-.commute-question button {
+/* Styling for MCQ questions */
+.mcq-question {
+  padding-top: 20px;
+  /* Adjust as needed */
+}
+
+.mcq-question button {
   display: block;
   margin: 5px auto;
   width: 50%;
@@ -100,6 +110,24 @@
   border-radius: 30px;
   box-sizing: border-box;
 }
+
+.mcq-question button.selected {
+  background-color: #61C088;
+  color: white;
+}
+
+/* Styling for Slider questions */
+.slider-question input[type="range"] {
+  width: 80%;
+  /* Adjust the width as needed */
+  margin: 10px auto;
+  /* Adjust margin as needed */
+  height: 20px;
+  color: #ADE28E;
+  background-color: #ADE28E;
+}
+
+
 
 /* Other styles remain the same */
 
@@ -129,7 +157,7 @@
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-  .commute-question {
+  .mcq-question {
     right: 0;
     margin-bottom: auto;
     /* Adjust the position for smaller screens */
@@ -140,7 +168,7 @@
   }
 }
 
-.commute-question button:hover {
+.mcq-question button:hover {
   opacity: 0.8;
 }
 
@@ -195,8 +223,9 @@ header nav img {
 }
 
 .text-content {
-  text-align: center;
-  max-width: 50%;
+  text-align: justify;
+  max-width: 45%;
+  padding-right: 20px;
 }
 
 .carbon-footprint-title {
@@ -304,7 +333,8 @@ header nav img {
   /* Adjust as needed */
   right: 10px;
   /* Adjust as needed */
-  padding: 20px;
+  /* padding-top: 20px;
+  padding-bottom: 5px; */
 }
 
 .small-rectangle .label .reveal-your-IMPACT {
@@ -316,7 +346,11 @@ header nav img {
   /* Adjust as needed */
   right: 20px;
   /* Adjust as needed */
-  padding: 20px;
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
 }
 
 
@@ -325,13 +359,14 @@ header nav img {
   font-family: "Open Sans-Regular", Helvetica;
   font-size: 20px;
   font-weight: 400;
+  text-align: justify;
   left: 0;
   letter-spacing: 0;
   line-height: normal;
   top: 0;
-  width: 377px;
+  width: 450px;
   padding-left: 10px;
-  padding-top: 40px;
+  padding: 40px;
 }
 
 .white-box .label .text-wrapper {
@@ -357,8 +392,8 @@ header nav img {
   letter-spacing: 0;
   line-height: normal;
   top: 0;
-  width: 666px;
-  padding-left: 20px;
+  width: 750px;
+  padding-left: 60px;
 }
 
 
@@ -404,7 +439,7 @@ header nav img {
 
 
 .glossary-description {
-  width: 50%;
+  width: 70%;
   /* Adjust as needed, this is for the text part */
   color: #223949;
   font-family: "Open Sans-Regular", Helvetica;
@@ -414,8 +449,8 @@ header nav img {
   letter-spacing: 0;
   line-height: normal;
   top: 0;
-  width: 546px;
-  padding-left: 20px;
+  width: 700px;
+  padding-left: 50px;
 }
 
 
@@ -456,6 +491,7 @@ header nav img {
 
 
 .begin-now-button {
+  margin-left: 550px;
   background-color: #1E425E;
   color: white;
   border: none;
@@ -463,6 +499,9 @@ header nav img {
   cursor: pointer;
   /* Additional button styling as needed */
   border-radius: 10px;
+  font-size: 20px;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .gb-image {
