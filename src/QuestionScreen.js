@@ -72,23 +72,139 @@ const questions = [
 
 
 
+// function QuestionScreen() {
+//   const [currentQuestion, setCurrentQuestion] = useState(0);
+//   const [selectedOption, setSelectedOption] = useState(null);
+
+//   const handleAnswer = (answer) => {
+//     try {
+//       console.log(`Answer for question ${currentQuestion + 1}: ${answer}`);
+
+//       if (currentQuestion < questions.length - 1) {
+//         setCurrentQuestion(currentQuestion + 1);
+//         setSelectedOption(null);
+//       }
+//     } catch (error) {
+//       console.error('Error in handleAnswer:', error);
+//     }
+//   };
+
+
+//   const renderQuestion = () => {
+//     if (currentQuestion >= questions.length) {
+//       return (
+//         <div className="question-container">
+//           <h1>All questions answered. Thank you!</h1>
+//         </div>
+//       );
+//     }
+
+//     const currentQuestionData = questions[currentQuestion];
+
+//     return (
+//       <>
+//         <div className="image-container">
+//           <img
+//             src={currentQuestionData.image}
+//             alt={`question ${currentQuestion + 1}`}
+//             className="question-image"
+//           />
+//           <div className="image-fact">
+//             {currentQuestionData.imageFact}
+//           </div>
+//         </div>
+//         <div className={`question-container ${currentQuestionData.type === 'slider' ? 'slider-question' : 'mcq-question'}`}>
+//           <h1>{currentQuestionData.text}</h1>
+//           {currentQuestionData.type === 'mcq' &&
+//             currentQuestionData.options.map((option, index) => (
+//               <button
+//                 key={index}
+//                 onClick={() => setSelectedOption(option)}
+//                 className={selectedOption === option ? 'selected' : ''}
+//               >
+//                 {option}
+//               </button>
+//             ))}
+//           {currentQuestionData.type === 'slider' && (
+//             <>
+//               <input
+//                 type="range"
+//                 min={currentQuestionData.min}
+//                 max={currentQuestionData.max}
+//                 step={currentQuestionData.step}
+//                 value={selectedOption === null ? currentQuestionData.min : selectedOption}
+//                 onChange={(e) => setSelectedOption(parseInt(e.target.value))}
+//               />
+//               <p>{selectedOption === null ? currentQuestionData.min : selectedOption}</p>
+//             </>
+//           )}
+//         </div>
+//       </>
+//     );
+//   };
+
+
+//   return (
+//     <div className="QuestionScreen">
+//       <header className="Screen-header">
+//         {renderQuestion()}
+//       </header>
+//       <div className="navigation-buttons">
+//         <button
+//           onClick={() =>
+//             setCurrentQuestion((prevQuestion) =>
+//               Math.max(prevQuestion - 1, 0)
+//             )
+//           }
+//           disabled={currentQuestion === 0}
+//         >
+//           Previous
+//         </button>
+//         <button
+//           onClick={() =>
+//             setCurrentQuestion((prevQuestion) =>
+//               Math.min(prevQuestion + 1, questions.length - 1)
+//             )
+//           }
+//           disabled={currentQuestion === questions.length - 1}
+//         >
+//           Next
+//         </button>
+//         <button
+//           onClick={() => handleAnswer(selectedOption)}
+//           disabled={selectedOption === null}
+//         >
+//           Submit
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default QuestionScreen;
+
+
+
 function QuestionScreen() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOptions, setSelectedOptions] = useState(Array(questions.length).fill(null));
 
   const handleAnswer = (answer) => {
     try {
       console.log(`Answer for question ${currentQuestion + 1}: ${answer}`);
 
+      const updatedSelectedOptions = [...selectedOptions];
+      updatedSelectedOptions[currentQuestion] = answer;
+
+      setSelectedOptions(updatedSelectedOptions);
+
       if (currentQuestion < questions.length - 1) {
         setCurrentQuestion(currentQuestion + 1);
-        setSelectedOption(null);
       }
     } catch (error) {
       console.error('Error in handleAnswer:', error);
     }
   };
-
 
   const renderQuestion = () => {
     if (currentQuestion >= questions.length) {
@@ -119,8 +235,8 @@ function QuestionScreen() {
             currentQuestionData.options.map((option, index) => (
               <button
                 key={index}
-                onClick={() => setSelectedOption(option)}
-                className={selectedOption === option ? 'selected' : ''}
+                onClick={() => handleAnswer(option)}
+                className={selectedOptions[currentQuestion] === option ? 'selected' : ''}
               >
                 {option}
               </button>
@@ -132,17 +248,23 @@ function QuestionScreen() {
                 min={currentQuestionData.min}
                 max={currentQuestionData.max}
                 step={currentQuestionData.step}
-                value={selectedOption === null ? currentQuestionData.min : selectedOption}
-                onChange={(e) => setSelectedOption(parseInt(e.target.value))}
+                value={selectedOptions[currentQuestion] === null ? currentQuestionData.min : selectedOptions[currentQuestion]}
+                onChange={(e) => {
+                  const selectedValue = parseInt(e.target.value);
+                  setSelectedOptions((prev) => {
+                    const updated = [...prev];
+                    updated[currentQuestion] = selectedValue;
+                    return updated;
+                  });
+                }}
               />
-              <p>{selectedOption === null ? currentQuestionData.min : selectedOption}</p>
+              <p>{selectedOptions[currentQuestion] === null ? currentQuestionData.min : selectedOptions[currentQuestion]}</p>
             </>
           )}
         </div>
       </>
     );
   };
-
 
   return (
     <div className="QuestionScreen">
@@ -160,7 +282,7 @@ function QuestionScreen() {
         >
           Previous
         </button>
-        <button
+        {/* <button
           onClick={() =>
             setCurrentQuestion((prevQuestion) =>
               Math.min(prevQuestion + 1, questions.length - 1)
@@ -169,12 +291,12 @@ function QuestionScreen() {
           disabled={currentQuestion === questions.length - 1}
         >
           Next
-        </button>
+        </button> */}
         <button
-          onClick={() => handleAnswer(selectedOption)}
-          disabled={selectedOption === null}
+          onClick={() => handleAnswer(selectedOptions[currentQuestion])}
+          disabled={selectedOptions[currentQuestion] === null}
         >
-          Submit
+          Next
         </button>
       </div>
     </div>

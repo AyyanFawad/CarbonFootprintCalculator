@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
 
-    const handleClick = () => {
-        console.log("welcome to cfc")
-    }
+    // const handleClick = () => {
+    //     console.log("welcome to cfc")
+    // }
 
     return (
         <div className="hero-container">
