@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './index.css';
 // import spinImage from './assets/spin.png';
+import { useHistory } from 'react-router-dom';
+
 
 const questions = [
   {
@@ -72,6 +74,7 @@ const questions = [
 
 
 function QuestionScreen() {
+  const history = useHistory();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState(Array(questions.length).fill(null));
 
@@ -86,11 +89,15 @@ function QuestionScreen() {
 
       if (currentQuestion < questions.length - 1) {
         setCurrentQuestion(currentQuestion + 1);
+      } else {
+        // All questions answered, navigate to ResultScreen
+        history.push('/result'); // Assuming your ResultScreen route is '/result'
       }
     } catch (error) {
       console.error('Error in handleAnswer:', error);
     }
   };
+
 
   const renderQuestion = () => {
     if (currentQuestion >= questions.length) {

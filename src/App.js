@@ -26,6 +26,7 @@ const App = () => {
         <Route path="/" exact render={() => <Layout><MainContent /></Layout>} />
         <Route path="/question" render={() => <Layout><QuestionScreen /></Layout>} />
         <Route path="/hero" render={() => <Layout><Hero /></Layout>} />
+        <Route path="/result" render={() => <Layout><ResultScreen /></Layout>} />
         {/* Add more routes for other pages */}
       </Switch>
     </Router>
