@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import './index.css';
 // import spinImage from './assets/spin.png';
 import { useHistory } from 'react-router-dom';
+import CommuteCar from './commute_car';
+import Gas from './gas';
+import Electricity from './elec';
 
 
 const questions = [
@@ -72,16 +75,114 @@ const questions = [
   },
 ];
 
+let q1Ans = 0;
+let q2Ans = 0;
+let q3Ans = 0;
+let q4Ans = 0;
+let q5Ans = 0;
+let q6Ans = 0;
+let q7Ans = 0;
+
+let carFootprint = 0;
+let gasFootprint = 0;
+let electricityFootprint = 0;
+let totalFootprint = 0;
+
 
 function QuestionScreen() {
   const history = useHistory();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState(Array(questions.length).fill(null));
 
+
+  const mapAnswerToValue = (questionIndex, answer) => {
+    switch (questionIndex) {
+      case 0: // Question 1
+        switch (answer) {
+          case 'Less than 10 minutes':
+            return 5;
+          case '10-20 mins':
+            return 15;
+          case '20-30 mins':
+            return 25;
+          case '30-45 mins':
+            return 35;
+          case 'More than 45 mins':
+            return 50;
+          default:
+            return 0; // Default value or handle invalid answers
+        }
+      case 1: // Question 2
+        switch (answer) {
+          case 'Car':
+            return 1;
+          case 'Bike':
+            return 1;
+          case 'Rickshaw':
+            return 1;
+          case 'Bus':
+            return 1;
+          case 'Walk':
+            return 1;
+          default:
+            return 0; // Default value or handle invalid answers
+        }
+      // Add similar cases for other questions if needed
+      default:
+        return 0; // Default value or handle invalid answers
+    }
+  };
+
+
   const handleAnswer = (answer) => {
     try {
       console.log(`Answer for question ${currentQuestion + 1}: ${answer}`);
 
+      const mappedValue = mapAnswerToValue(currentQuestion, answer);
+
+      switch (currentQuestion) {
+        case 0:
+          q1Ans = mappedValue;
+          break;
+        case 1:
+          q2Ans = mappedValue;
+          break;
+        case 2:
+          q3Ans = answer;
+          break;
+        case 3:
+          q4Ans = answer;
+          break;
+        case 4:
+          q5Ans = answer;
+          break;
+        case 5:
+          q6Ans = answer;
+          break;
+        case 6:
+          q7Ans = answer;
+          break;
+        default:
+          break;
+      }
+      if (currentQuestion === 6) {  // Assuming question 2 is related to commuting by car
+        const myvehicle = new CommuteCar(1, 0, 2);  // Adjust this based on your data structure
+
+        // Use the imported function to calculate the carbon footprint
+        carFootprint = myvehicle.petrolMoney(q4Ans);
+
+        // Log or use the calculated carbon footprint as needed
+        // console.log('Calculated car carbon footprint:', carFootprint);
+
+        const gasInstance = new Gas(q7Ans / q5Ans);
+        gasFootprint = gasInstance.getCarbonFootprint();
+
+        const electricityInstance = new Electricity(q6Ans / q5Ans);
+        electricityFootprint = electricityInstance.getCarbonFootprint();
+      }
+
+      // console.log('q1 ans: %d', q1Ans);
+      // console.log('q2 ans: %d', q2Ans);
       const updatedSelectedOptions = [...selectedOptions];
       updatedSelectedOptions[currentQuestion] = answer;
 
@@ -91,7 +192,9 @@ function QuestionScreen() {
         setCurrentQuestion(currentQuestion + 1);
       } else {
         // All questions answered, navigate to ResultScreen
-        history.push('/result'); // Assuming your ResultScreen route is '/result'
+        totalFootprint = carFootprint + electricityFootprint + gasFootprint;
+        console.log("total footprint:", totalFootprint);
+        history.push('/result', { totalFootprint });
       }
     } catch (error) {
       console.error('Error in handleAnswer:', error);

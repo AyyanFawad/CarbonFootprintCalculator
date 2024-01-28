@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import './index.css';
+import { useLocation } from 'react-router-dom';
 
-const ResultScreen = ({ resultPercentage }) => {
+const ResultScreen = () => {
+    const location = useLocation();
+    const resultPercentage = location.state && location.state.totalFootprint;
+
+
     return (
         <div className='ResultScreen'>
             <div className='ResultBoxes'>
                 <section className="result-number-container">
                     <div className='result-rectangle'>
                         <div className="result-number">
-                            <span>{resultPercentage} 21%</span>
+                            <span>{resultPercentage}%</span>
                             <div className='result-number-text'>Carbon Footprint emitted</div>
                         </div>
                     </div>
