@@ -6,14 +6,14 @@ const solar = 0.606; // tCO2/MWh
 class Gas {
     constructor(GasConsumption) {
         this.GasConsumption = GasConsumption;
-        this.footprint = 2.66; // kg 
-        this.convert = 28.317; // litres
-
+        this.footprint = 0.0550; // kg 
+        // this.convert = 28.317; // litres
+        
     }
 
     getCarbonFootprint() {
         // one unit is 1kWh
-        const averageCarbonFootprint = this.GasConsumption * this.convert * this.footprint;
+        const averageCarbonFootprint = this.GasConsumption  * this.footprint;
         return averageCarbonFootprint;
     }
 }
