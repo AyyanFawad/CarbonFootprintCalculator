@@ -189,7 +189,7 @@ header {
   background-color: #D6FFC2;
   /* padding: 1rem; */
   text-align: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   border-radius: 0;
 }
 
@@ -204,12 +204,12 @@ header nav img {
   /* Adjust the width as needed */
   height: auto;
   /* This will maintain the aspect ratio of the image */
-  padding-left: 10px;
+  padding-left: 1.5rem;
 }
 
 .header-title {
   color: #008269;
-  padding-right: 10px;
+  padding-right: 1.5rem;
 
 }
 
@@ -221,24 +221,38 @@ header nav img {
 
 /* MainContent.css */
 
-
+/* section 1 */
 .carbon-footprint-section {
   display: flex;
-  align-items: center;
+  /* flex-direction: row; */
+  /* justify-content: center; */
+  /* column-gap: 10px; */
   justify-content: space-between;
-  margin-top: 20px;
+  align-items: center;
+}
+
+.global-footprint-image-container {
+  /* Set a specific width or max-width for the image if needed */
+  /* width: 50%; */
+  flex: 1;
+  padding: 2rem;
 }
 
 .global-footprint-image {
-  /* Set a specific width or max-width for the image if needed */
-  width: 50%;
-  padding-bottom: 20px;
+  width: 100%;
 }
 
 .text-content {
-  text-align: justify;
-  max-width: 45%;
-  padding-right: 20px;
+  /* text-align: justify; */
+  /* max-width: 45%; */
+  flex: 1;
+  /* padding-right: 20px; */
+  /* padding-bottom: 20px;
+  padding-right: 20px; */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .carbon-footprint-title {
@@ -247,6 +261,8 @@ header nav img {
   font-size: 50px;
   font-weight: 600;
   line-height: normal;
+  text-align: center;
+  padding: 2rem;
 }
 
 .carbon-footprint-description {
@@ -255,6 +271,8 @@ header nav img {
   font-size: 20px;
   font-weight: 400;
   line-height: normal;
+  text-align: justify;
+  padding: 2rem;
 }
 
 .learn-more-button {
@@ -262,9 +280,17 @@ header nav img {
   color: white;
   border: none;
   padding: 10px 20px;
-  cursor: pointer;
   border-radius: 10px;
   /* Additional button styling as needed */
+  /* cursor: pointer; */
+  align-self: center;
+  margin-top: auto;
+  font-size: 20px;
+}
+
+.learn-more-button:hover {
+  background-color: #5eadb4;
+  cursor: pointer;
 }
 
 /* Responsive design adjustments */
@@ -288,45 +314,29 @@ header nav img {
 
 /* section 2  */
 .section-with-rectangles {
-  position: relative;
-  height: 400px;
-  /* Set the height to match the previous section */
-  margin: 0 auto;
-  /* Centers the content */
-  width: 1437px;
-  /* Adjust based on your layout requirements */
+  display: flex;
+  /* flex-direction: row; */
+  /* justify-content: center; */
+  /* column-gap: 10px; */
+  justify-content: space-between;
+  align-items: stretch;
+  box-sizing: border-box;
+  padding: 0 20px;
 }
 
-.large-rectangle {
-  background-color: #ebf0c066;
-  height: 400px;
-  width: 1437px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* padding-top: 20px; */
-}
+
 
 .small-rectangle {
   background-color: #a8d9dd80;
-  height: 400px;
-  width: 537px;
-  top: 0;
-  left: 0;
-  position: relative;
+  flex: 1;
   /* padding-top: 50px; */
+  padding: 2rem;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .white-box {
   /* background-color: #FFFFFF; */
-  background-color: #ebf0c066;
-  /* height: 512px;
-  width: 799px; */
-  height: 400px;
-  width: 900px;
-  top: 0px;
-  left: 537px;
-  position: absolute;
   /* padding-top: 50px; */
   /* top: 50%; */
   /* left: 50%; */
@@ -334,79 +344,49 @@ header nav img {
   /* This centers the box */
   /* margin-left: 150px; */
   /* Adjust as needed to move box to the right */
+  /* background-color: #e4d5b7; */
+  background-color: #FAF0E6;
+  flex: 2;
+  padding: 2rem;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-.small-rectangle .label .text-wrapper {
+.small-rectangle-title {
   color: #4c6880;
   font-family: "Oooh Baby-Regular", Helvetica, sans-serif;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 400;
-  text-align: left;
-  top: 10px;
-  /* Adjust as needed */
-  right: 10px;
-  /* Adjust as needed */
-  /* padding-top: 20px;
-  padding-bottom: 5px; */
+  text-align: center;
+  /* padding: 2rem; */
 }
 
-.small-rectangle .label .reveal-your-IMPACT {
-  color: #4c6880;
-  font-family: "Open Sans-SemiBold", Helvetica, sans-serif;
-  font-size: 50px;
-  font-weight: 700;
-  top: 20px;
-  /* Adjust as needed */
-  right: 20px;
-  /* Adjust as needed */
-  padding-top: 50px;
-  padding-left: 30px;
-  padding-right: 30px;
-  /* padding-top: 10px;
-  padding-bottom: 10px; */
+.white-box-title {
+  /* color: #D9B99B; */
+  color: #C19A6B;
+  font-family: "Oooh Baby-Regular", Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+  /* padding: 2rem; */
 }
-
 
 .calculator-description {
-  color: #223949;
+  color: #4c6880;
   font-family: "Open Sans-Regular", Helvetica;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 400;
   text-align: justify;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  top: 0;
-  width: 450px;
-  padding-left: 10px;
-  padding: 40px;
-}
-
-.white-box .label .text-wrapper {
-  color: #5eadb4;
-  font-family: "Open Sans-Bold", Helvetica, sans-serif;
-  font-size: 50px;
-  font-weight: 700;
-  text-align: center;
-  top: 20px;
-  /* Adjust as needed */
-  right: 20px;
-  /* Adjust as needed */
-  padding: 20px;
-
+  padding-top: 2rem;
 }
 
 .environment-description {
-  color: #223949;
+  color: #C19A6B;
   font-family: "Open Sans-Regular", Helvetica;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 400;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  top: 0;
-  width: 750px;
-  padding-left: 60px;
+  text-align: justify;
+  padding-top: 2rem;
 }
 
 
@@ -418,7 +398,6 @@ header nav img {
     /* Take up full width */
   }
 
-  .large-rectangle,
   .small-rectangle {
     width: 90%;
     /* Full width */
@@ -431,10 +410,6 @@ header nav img {
     /* Adjust width for smaller screens */
     margin-left: 0;
     /* Reset margin to align with new layout */
-    top: initial;
-    left: initial;
-    transform: translate(0, 0);
-    /* Reset transform for new layout */
   }
 }
 
@@ -446,79 +421,45 @@ header nav img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 600px;
+  /* height: 600px; */
   /* Same as previous sections */
 }
 
+.glossary-content {
+  flex: 1;
+  padding: 2rem;
+  width: 100%;
+}
+
+.glossary-title {
+  color: #008269;
+  font-size: 50px;
+  /* Adjust as needed */
+  font-weight: 400;
+  text-align: center;
+  /* Adjust text alignment as needed */
+  /* Other font styles */
+  /* padding-left: 40px; */
+}
 
 .glossary-description {
-  width: 70%;
+  /* width: 70%; */
   /* Adjust as needed, this is for the text part */
   color: #223949;
   font-family: "Open Sans-Regular", Helvetica;
   font-size: 20px;
   font-weight: 400;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  top: 0;
-  width: 700px;
-  padding-left: 50px;
-}
-
-
-
-.glossary-label .text-wrapper,
-.glossary-label .terms-title {
-  /* Removed 'position: absolute' from here */
-  /* These elements will flow normally within the .glossary-label container */
-  color: #008269;
-  font-size: 50px;
-  /* Adjust as needed */
-  font-weight: 400;
-  text-align: left;
-  /* Adjust text alignment as needed */
-  /* Other font styles */
-  padding-left: 40px;
-}
-
-/* Styling for 'Terms' title */
-.glossary-label .terms-title {
-  font-family: "Open Sans-SemiBold", Helvetica, sans-serif;
-  font-size: 50px;
-  font-weight: 600;
-  /* Other font styles */
+  padding: 2rem;
 }
 
 /* Box styling */
-.box {
-  position: relative;
-  /* To position the circle and image */
-  height: 508px;
-  width: 528px;
-  /* This box will take up the remaining space in the flex container */
-  padding-right: 50px;
-}
-
-/* MainContent.css */
-
-
-.begin-now-button {
-  margin-left: 550px;
-  background-color: #1E425E;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  /* Additional button styling as needed */
-  border-radius: 10px;
-  font-size: 20px;
-  white-space: nowrap;
-  display: inline-block;
+.glossary-image-container {
+  flex: 1;
+  padding: 2rem;
 }
 
 .gb-image {
-  position: absolute;
+  /* position: absolute; */
   /* Adjust the top and left properties to reposition the image */
   /* top: -50px; */
   /* Example value, adjust as needed */
@@ -528,11 +469,31 @@ header nav img {
   /* If the image is too large, you can also adjust its size */
   width: 100%;
   /* Adjust the width if necessary */
-  height: auto;
-  left: -50px;
+  /* height: auto;
+  left: -50px; */
   /* padding-right: 50px; */
   /* Keep the aspect ratio */
 }
+
+.begin-now-button {
+  margin-left: 550px;
+  background-color: #1E425E;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  /* Additional button styling as needed */
+  border-radius: 10px;
+  font-size: 20px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.begin-now-button:hover {
+  background-color: #5eadb4;
+  cursor: pointer;
+}
+
+
 
 
 /* Hero page */
