@@ -500,29 +500,28 @@ header nav img {
 .hero-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.hero-content {
+.hero-image-container {
   display: flex;
   /* Use flexbox to arrange child elements horizontally */
-  flex-direction: column;
+  /* flex-direction: column; */
   /* Stack child elements vertically */
-  align-items: center;
+  /* align-items: center; */
   /* Horizontally center child elements */
+  flex: 1;
+  padding: 2rem;
 }
 
 .cf-image {
-  height: auto;
+  /* height: auto;
   width: auto;
-  margin-left: 0%;
+  margin-left: 0%; */
+  width: 100%;
 
 }
 
-.text-container {
-  margin-top: 3%;
-  margin-left: 15%;
-
-}
 
 .whats-ur-cfc {
   color: #1E425E;
@@ -532,8 +531,9 @@ header nav img {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-left: 25%;
-  margin-right: 0%;
+  /* margin-left: 25%; */
+  /* margin-right: 0%; */
+  padding-bottom: 20px;
 }
 
 .reveal-button {
@@ -543,16 +543,27 @@ header nav img {
   border: 1px solid #000;
   background: #1E425E;
   color: #FFFFFF;
-  cursor: pointer;
+  /* cursor: pointer; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
   font-weight: 700;
-  margin-left: 25%;
-  margin-right: 0%;
+  /* margin-left: 25%; */
+  /* margin-right: 0%; */
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
+.reveal-button:hover {
+  background-color: #5eadb4;
+  cursor: pointer;
+}
+
 .text-beside-image {
+  flex: 1;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 1rem; */
 }
 
 
