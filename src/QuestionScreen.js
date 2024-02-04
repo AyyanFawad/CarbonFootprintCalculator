@@ -214,7 +214,7 @@ function QuestionScreen() {
     const currentQuestionData = questions[currentQuestion];
 
     return (
-      <>
+      <div className='question-screen-container'>
         <div className="image-container">
           <img
             src={currentQuestionData.image}
@@ -257,44 +257,32 @@ function QuestionScreen() {
               <p>{selectedOptions[currentQuestion] === null ? currentQuestionData.min : selectedOptions[currentQuestion]}</p>
             </>
           )}
+          <div className="navigation-buttons">
+            <button
+              onClick={() =>
+                setCurrentQuestion((prevQuestion) =>
+                  Math.max(prevQuestion - 1, 0)
+                )
+              }
+              disabled={currentQuestion === 0}
+            >
+              Previous
+            </button>
+            <button
+              onClick={() => handleAnswer(selectedOptions[currentQuestion])}
+              disabled={selectedOptions[currentQuestion] === null}
+            >
+              Next
+            </button>
+          </div>
         </div>
-      </>
+      </div>
     );
   };
 
   return (
     <div className="QuestionScreen">
-      <header className="Screen-header">
-        {renderQuestion()}
-      </header>
-      <div className="navigation-buttons">
-        <button
-          onClick={() =>
-            setCurrentQuestion((prevQuestion) =>
-              Math.max(prevQuestion - 1, 0)
-            )
-          }
-          disabled={currentQuestion === 0}
-        >
-          Previous
-        </button>
-        {/* <button
-          onClick={() =>
-            setCurrentQuestion((prevQuestion) =>
-              Math.min(prevQuestion + 1, questions.length - 1)
-            )
-          }
-          disabled={currentQuestion === questions.length - 1}
-        >
-          Next
-        </button> */}
-        <button
-          onClick={() => handleAnswer(selectedOptions[currentQuestion])}
-          disabled={selectedOptions[currentQuestion] === null}
-        >
-          Next
-        </button>
-      </div>
+      {renderQuestion()}
     </div>
   );
 }
