@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 import CommuteCar from './commute_car';
 import Gas from './gas';
 import Electricity from './elec';
+import CommutePublicTransport from './PublicTransport'
+import Flights from './airtravel';
 
 
 const questions = [
@@ -36,6 +38,17 @@ const questions = [
     step: 1,
     image: require('./assets/q3.jpg'),
     imageFact: "Transport accounts for around one-quarter of global carbon dioxide (CO2) emissions from energy.",
+  },
+  {
+    type: 'mcq',
+    text: 'What fuel do you use?',
+    options: [
+      'Petrol',
+      'Deisel',
+      'CNG',
+    ],
+    image: require('./assets/q1.jpg'), // Replace with the correct path for your image
+    imageFact: "Transportation is what usually makes up for the largest portion of an individuals carbon footprint.",
   },
   {
     type: 'slider',
@@ -73,20 +86,43 @@ const questions = [
     image: require('./assets/q7.jpg'),
     imageFact: "If you don't remember thats okay. Kindly follow the link to get your bill: https://fescoonlinebillcheck.pk/sui-gas-bill/",
   },
+  {
+    type: 'slider',
+    text: 'How many hours did you spend flying last month for business?',
+    min: 0,
+    max: 50,
+    step: 0.5,
+    image: require('./assets/q7.jpg'),
+    imageFact: "If you don't remember thats okay. Kindly follow the link to get your bill: https://fescoonlinebillcheck.pk/sui-gas-bill/",
+  },
+  {
+    type: 'slider',
+    text: 'How many hours did you spend flying last month for your personal use?',
+    min: 0,
+    max: 50,
+    step: 0.5,
+    image: require('./assets/q7.jpg'),
+    imageFact: "If you don't remember thats okay. Kindly follow the link to get your bill: https://fescoonlinebillcheck.pk/sui-gas-bill/",
+  },
 ];
 
 let q1Ans = 0;
-let q2Ans = 0;
+let q2Ans = "";
 let q3Ans = 0;
 let q4Ans = 0;
 let q5Ans = 0;
 let q6Ans = 0;
 let q7Ans = 0;
+let q8Ans = 0;
+let q9Ans = 0;
+let q10Ans = 0;
 
 let carFootprint = 0;
+let commutefootprint = 0;
 let gasFootprint = 0;
 let electricityFootprint = 0;
 let totalFootprint = 0;
+let AirTravelFootprint = 0;
 
 
 function QuestionScreen() {
@@ -112,6 +148,17 @@ function QuestionScreen() {
           default:
             return 0; // Default value or handle invalid answers
         }
+      case 3: // Question 4
+        switch (answer) {
+          case 'Petrol':
+            return 1;
+          case 'Diesel':
+            return 2;
+          case 'CNG':
+            return 3;
+          default:
+            return 0; // Default value or handle invalid answers
+      }
       case 1: // Question 2
         switch (answer) {
           case 'Car':
@@ -145,13 +192,13 @@ function QuestionScreen() {
           q1Ans = mappedValue;
           break;
         case 1:
-          q2Ans = mappedValue;
+          q2Ans = answer;
           break;
         case 2:
           q3Ans = answer;
           break;
         case 3:
-          q4Ans = answer;
+          q4Ans = mappedValue;
           break;
         case 4:
           q5Ans = answer;
@@ -162,23 +209,37 @@ function QuestionScreen() {
         case 6:
           q7Ans = answer;
           break;
+        case 7:
+          q8Ans = answer;
+          break
+        case 8:
+          q9Ans = answer;
+          break
+        case 9:
+          q10Ans = answer;
+          break 
+        // case 
         default:
           break;
       }
-      if (currentQuestion === 6) {  // Assuming question 2 is related to commuting by car
-        const myvehicle = new CommuteCar(1, 0, 2);  // Adjust this based on your data structure
+      if (currentQuestion === 9) {  // Assuming question 2 is related to commuting by car
+        const myvehicle = new CommutePublicTransport(q2Ans,q1Ans ,q3Ans);  // Adjust this based on your data structure
 
         // Use the imported function to calculate the carbon footprint
-        carFootprint = myvehicle.petrolMoney(q4Ans);
+        commutefootprint = myvehicle.getCarbonFootprint();
 
         // Log or use the calculated carbon footprint as needed
         // console.log('Calculated car carbon footprint:', carFootprint);
-
-        const gasInstance = new Gas(q7Ans / q5Ans);
+        const mycar = new CommuteCar(q4Ans,2);
+        carFootprint = mycar.get_footprint(q5Ans);
+        const gasInstance = new Gas(q8Ans / q6Ans);
         gasFootprint = gasInstance.getCarbonFootprint();
 
-        const electricityInstance = new Electricity(q6Ans / q5Ans);
+        const electricityInstance = new Electricity(q7Ans / q6Ans);
         electricityFootprint = electricityInstance.getCarbonFootprint();
+
+        const air = new Flights(q9Ans,q10Ans);
+        AirTravelFootprint = air.getFootprints();
       }
 
       // console.log('q1 ans: %d', q1Ans);
@@ -192,7 +253,7 @@ function QuestionScreen() {
         setCurrentQuestion(currentQuestion + 1);
       } else {
         // All questions answered, navigate to ResultScreen
-        totalFootprint = carFootprint + electricityFootprint + gasFootprint;
+        totalFootprint = carFootprint + electricityFootprint + gasFootprint + commutefootprint + AirTravelFootprint;
         console.log("total footprint:", totalFootprint);
         history.push('/result', { totalFootprint });
       }

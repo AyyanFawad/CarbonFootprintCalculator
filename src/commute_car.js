@@ -3,18 +3,18 @@ const dieselRate = 289.71;
 const cngRate = 145.00;
 
 class CommuteCar {
-    constructor(carType, carpool, inputType) {
+    constructor(carType, inputType) {
         // carType = 1 is petrol, 2 is diesel, 3 is cng
         this.carType = carType;
         // carpool >= 1 is yes, 0 is no
-        this.carpool = carpool;
+        this.carpool = 0;
         // inputType = 1 is litres, 2 is rupees
         this.inputType = inputType;
     }
 
     petrolMoney(rupees) {
         const litres = rupees / petrolRate;
-        let carbonFootprint = litres * 2.3;
+        let carbonFootprint = litres * (2.3/907.2);//tons
 
         if (this.carpool >= 1) {
             carbonFootprint /= this.carpool + 1;
@@ -25,7 +25,7 @@ class CommuteCar {
 
     dieselMoney(rupees) {
         const litres = rupees / dieselRate;
-        let carbonFootprint = litres * 2.7;
+        let carbonFootprint = litres * (2.7/907.2); // toms
 
         if (this.carpool >= 1) {
             carbonFootprint /= this.carpool + 1;
@@ -36,7 +36,7 @@ class CommuteCar {
 
     cngMoney(rupees) {
         const litres = rupees / cngRate;
-        let carbonFootprint = litres * 2.3;
+        let carbonFootprint = litres * (2.3/907.2); // tons
 
         if (this.carpool >= 1) {
             carbonFootprint /= this.carpool + 1;
@@ -46,7 +46,7 @@ class CommuteCar {
     }
 
     petrolLitres(litres) {
-        let carbonFootprint = litres * 2.3;
+        let carbonFootprint = litres * (2.3/907.2); //tons
 
         if (this.carpool >= 1) {
             carbonFootprint /= this.carpool + 1;
@@ -56,7 +56,7 @@ class CommuteCar {
     }
 
     dieselLitres(litres) {
-        let carbonFootprint = litres * 2.7;
+        let carbonFootprint = litres * (2.7/907.2); //tons
 
         if (this.carpool >= 1) {
             carbonFootprint /= this.carpool + 1;
@@ -66,7 +66,7 @@ class CommuteCar {
     }
 
     cngLitres(litres) {
-        let carbonFootprint = litres * 2.3;
+        let carbonFootprint = litres * (2.3/907.2); // tons
 
         if (this.carpool >= 1) {
             carbonFootprint /= this.carpool + 1;
@@ -74,7 +74,34 @@ class CommuteCar {
 
         return carbonFootprint;
     }
+    get_footprint(variable){
+        if (this.inputType===1){
+            // Litres
+            if (this.carType===1){
+                return this.petrolLitres(variable)
+            }
+            if (this.carType === 2){
+                return this.dieselLitres(variable)
+            }
+            if (this.carType===3){
+                return this.cngLitres(variable)
+            }
+        }
+        if (this.inputType===2){
+            // Litres
+            if (this.carType===1){
+                return this.petrolMoney(variable)
+            }
+            if (this.carType === 2){
+                return this.dieselMoney(variable)
+            }
+            if (this.carType===3){
+                return this.cngMoney(variable)
+            }
+        }
+    }
 }
+
 
 export default CommuteCar;
 
