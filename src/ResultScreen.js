@@ -4,7 +4,7 @@ import { Doughnut } from 'react-chartjs-2';
 import { Chart } from 'chart.js';
 import 'chart.js/auto';
 import './index.css';
-
+//test
 Chart.register(
     // Register necessary elements
     'ArcElement',
