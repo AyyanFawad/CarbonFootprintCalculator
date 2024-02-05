@@ -1,4 +1,4 @@
-const solar = 0.606; // tCO2/MWh
+// const solar = 0.606; // tCO2/MWh
 
 class Electricity {
     constructor(electricityConsumption) {
@@ -16,7 +16,7 @@ class Electricity {
 
     getCarbonFootprint() {
         // one unit is 1kWh
-        const averageCarbonFootprint = this.electricityConsumption * 0.0001 * this.average;
+        // const averageCarbonFootprint = this.electricityConsumption * 0.0001 * this.average;
         const ieaAverageCarbonFootprint = this.electricityConsumption * 0.0001 * this.ieaAverage;
         return ieaAverageCarbonFootprint;
     }

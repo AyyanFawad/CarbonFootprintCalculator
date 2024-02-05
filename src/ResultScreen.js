@@ -38,6 +38,7 @@ const ResultScreen = () => {
             <section className='breakdown-container'>
                 <div className='breakdown-rectangle'>
                     <div className='breakdown-text'>The breakdown of your Carbon Footprint is as follows:</div>
+
                 </div>
             </section>
         </div>
