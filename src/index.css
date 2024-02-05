@@ -761,6 +761,7 @@ footer {
   align-items: center;
   justify-content: center;
   margin-bottom: 1%;
+  flex-direction: column;
 }
 
 .breakdown-text {
@@ -772,4 +773,9 @@ footer {
   flex-wrap: wrap;
   flex-direction: row;
   text-align: center;
+}
+
+.doughnut-chart {
+  width: '40%';
+  height: '40%';
 }

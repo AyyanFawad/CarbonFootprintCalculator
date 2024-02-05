@@ -1,8 +1,16 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-// import { Doughnut } from 'react-chartjs-2';
-// import 'chart.js/auto';
-import './index.css'; // Import your styles here
+import { Doughnut } from 'react-chartjs-2';
+import { Chart } from 'chart.js';
+import 'chart.js/auto';
+import './index.css';
+
+Chart.register(
+    // Register necessary elements
+    'ArcElement',
+    'ToolTip',
+    'Legend'
+);
 
 const ResultScreen = () => {
     const location = useLocation();
@@ -18,11 +26,21 @@ const ResultScreen = () => {
         labels: ['Vehicle', 'Electricity', 'Gas', 'Commute', 'Air Travel'],
         datasets: [
             {
+                label: 'Breakdown',
                 data: [vehicleFootprint, electricityFootprint, gasFootprint, commuteFootprint, airTravelFootprint],
                 backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4CAF50', '#FF9800'],
                 hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4CAF50', '#FF9800'],
             },
         ],
+    };
+
+    const options = {
+        plugins: {
+            legend: {
+                position: 'bottom',
+            },
+        },
+        aspectRatio: 1,
     };
 
 
@@ -57,9 +75,10 @@ const ResultScreen = () => {
             <section className='breakdown-container'>
                 <div className='breakdown-rectangle'>
                     <div className='breakdown-text'>The breakdown of your Carbon Footprint is as follows:</div>
-                    {/* <div className='pie-chart-container'>
-                        <Doughnut data={data} />
-                    </div> */}
+                    <div className='doughnut-chart'>
+                        <Doughnut data={data} options={options}>
+                        </Doughnut>
+                    </div>
                 </div>
             </section>
         </div>

@@ -370,7 +370,7 @@ function QuestionScreen() {
             </button>
           </div>
           <div className='question-tracker'>
-            Question {currentQuestion + 1} of 9
+            Question {currentQuestion + 1} of 10
           </div>
         </div>
       </div>
