@@ -92,8 +92,8 @@ const questions = [
     min: 0,
     max: 50,
     step: 0.5,
-    image: require('./assets/q7.jpg'),
-    imageFact: "If you don't remember thats okay. Kindly follow the link to get your bill: https://fescoonlinebillcheck.pk/sui-gas-bill/",
+    image: require('./assets/q8.jpg'),
+    imageFact: "Insert fact about air travel here",
   },
   {
     type: 'slider',
@@ -101,8 +101,8 @@ const questions = [
     min: 0,
     max: 50,
     step: 0.5,
-    image: require('./assets/q7.jpg'),
-    imageFact: "If you don't remember thats okay. Kindly follow the link to get your bill: https://fescoonlinebillcheck.pk/sui-gas-bill/",
+    image: require('./assets/q9.jpg'),
+    imageFact: "Insert fact about air travel here",
   },
 ];
 
@@ -229,24 +229,24 @@ function QuestionScreen() {
         commuteFootprint = myvehicle.getCarbonFootprintRickshaw();
 
         // Log or use the calculated carbon footprint as needed
-        console.log('Calculated commute footprint:', commuteFootprint);
+        // console.log('Calculated commute footprint:', commuteFootprint);
         const mycar = new CommuteCar(q4Ans, 2);
         carFootprint = mycar.get_footprint(q5Ans);
-        console.log('Calculated car footprint:', carFootprint);
+        // console.log('Calculated car footprint:', carFootprint);
 
         const gasInstance = new Gas(q8Ans / q6Ans);
         gasFootprint = gasInstance.getCarbonFootprint();
-        console.log('Calculated gas footprint:', gasFootprint);
+        // console.log('Calculated gas footprint:', gasFootprint);
 
 
         const electricityInstance = new Electricity(q7Ans / q6Ans);
         electricityFootprint = electricityInstance.getCarbonFootprint();
-        console.log('Calculated electricity footprint:', electricityFootprint);
+        // console.log('Calculated electricity footprint:', electricityFootprint);
 
 
         const air = new Flights(q9Ans, q10Ans);
         AirTravelFootprint = air.getFootprints();
-        console.log('Calculated air footprint:', AirTravelFootprint);
+        // console.log('Calculated air footprint:', AirTravelFootprint);
 
       }
 
@@ -261,10 +261,33 @@ function QuestionScreen() {
         setCurrentQuestion(currentQuestion + 1);
       } else {
         // All questions answered, navigate to ResultScreen
+        // totalFootprint = carFootprint + electricityFootprint + gasFootprint + commuteFootprint + AirTravelFootprint;
+        // const roundedTotalFootprint = parseFloat(totalFootprint.toFixed(2));
+        // console.log("total footprint:", roundedTotalFootprint);
+        // history.push('/result', { totalFootprint: roundedTotalFootprint });
         totalFootprint = carFootprint + electricityFootprint + gasFootprint + commuteFootprint + AirTravelFootprint;
-        const roundedTotalFootprint = parseFloat(totalFootprint.toFixed(2));
-        console.log("total footprint:", roundedTotalFootprint);
-        history.push('/result', { totalFootprint: roundedTotalFootprint });
+
+        // Round individual footprints to 2 decimal places
+        const roundedCarFootprint = parseFloat(carFootprint.toFixed(2));
+        const roundedElectricityFootprint = parseFloat(electricityFootprint.toFixed(2));
+        const roundedGasFootprint = parseFloat(gasFootprint.toFixed(2));
+        const roundedCommuteFootprint = parseFloat(commuteFootprint.toFixed(2));
+        const roundedAirTravelFootprint = parseFloat(AirTravelFootprint.toFixed(2));
+
+        // Create an object containing individual and total footprints
+        const footprintsData = {
+          carFootprint: roundedCarFootprint,
+          electricityFootprint: roundedElectricityFootprint,
+          gasFootprint: roundedGasFootprint,
+          commuteFootprint: roundedCommuteFootprint,
+          airTravelFootprint: roundedAirTravelFootprint,
+          totalFootprint: parseFloat(totalFootprint.toFixed(2)),
+        };
+
+        // Log and push to results screen
+        console.log("Individual Footprints:", footprintsData);
+        history.push('/result', footprintsData);
+
 
       }
     } catch (error) {
@@ -345,6 +368,9 @@ function QuestionScreen() {
             >
               Next
             </button>
+          </div>
+          <div className='question-tracker'>
+            Question {currentQuestion + 1} of 9
           </div>
         </div>
       </div>
