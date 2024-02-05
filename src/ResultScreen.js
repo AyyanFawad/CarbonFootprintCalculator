@@ -5,6 +5,7 @@ import { Chart } from 'chart.js';
 import 'chart.js/auto';
 import './index.css';
 //test
+//test 2
 Chart.register(
     // Register necessary elements
     'ArcElement',
