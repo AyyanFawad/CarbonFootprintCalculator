@@ -44,6 +44,39 @@ const ResultScreen = () => {
         aspectRatio: 1,
     };
 
+    const getLargestCategory = () => {
+        const footprints = {
+            vehicle: vehicleFootprint,
+            electricity: electricityFootprint,
+            gas: gasFootprint,
+            commute: commuteFootprint,
+            airTravel: airTravelFootprint,
+        };
+
+        return Object.keys(footprints).reduce((a, b) => footprints[a] > footprints[b] ? a : b);
+    };
+
+    const largestCategory = getLargestCategory();
+
+    const renderSuggestions = () => {
+        switch (largestCategory) {
+            case 'vehicle':
+                return <p>Consider carpooling, using public transportation, or switching to an electric vehicle to reduce your carbon footprint from commuting.</p>;
+            case 'electricity':
+                return <p>Use energy-efficient appliances, turn off lights when not in use, and consider renewable energy sources to lower your electricity consumption.</p>;
+            // Add cases for other categories
+            case 'commute':
+                return <p>Enter tips for reducing emissions when largest category is commute</p>
+            case 'airTravel':
+                return <p>Enter tips for reducing emissions when largest category is air travelEnter tips for reducing emissions when largest category is air travel</p>
+            case 'gas':
+                return <p>Enter tips for reducing emissions when largest category is gas</p>
+
+            default:
+                return <p>Explore various ways to reduce your overall carbon footprint and contribute to a more sustainable lifestyle.</p>;
+        }
+    };
+
 
     return (
         <div className='ResultScreen'>
@@ -73,6 +106,12 @@ const ResultScreen = () => {
                     <Doughnut data={data} options={options}>
                     </Doughnut>
                 </div>
+            </div>
+            <div className='footprint-insights'>
+                <div className='footprint-insights-text'>
+                    {renderSuggestions()}
+                </div>
+
             </div>
         </div>
     );
