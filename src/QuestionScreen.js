@@ -41,7 +41,7 @@ const questions = [
   },
   {
     type: 'mcq',
-    text: 'What fuel do you use?',
+    text: 'What type of fuel does your personal vehicle use?',
     options: [
       'Petrol',
       'Diesel',
@@ -52,12 +52,16 @@ const questions = [
   },
   {
     type: 'slider',
-    text: 'Approximately how much did you spend on fuel the last time you refilled your vehicle?',
+    text: 'Approximately how much did you spend on fuel the last time you refilled your vehicle  (In Rupees)?',
     min: 0,
     max: 25000,
     step: 500,
     image: require('./assets/q4.jpg'),
-    imageFact: "Vehicles that use gasoline emit 2.3 kg CO2/L. Vehicles that use diesel emit 2.68 kg CO2/L and vehicles that use CNG use 2.66kg CO2/L.",
+    imageFact: <div>
+      Vehicles that use gasoline emit 2.3 kg CO2/L. <br />
+      Vehicles that use diesel emit 2.68 kg CO2/L and <br />
+      vehicles that use CNG emit 2.66 kg CO2/L.
+    </div>
   },
   {
     type: 'slider',
@@ -70,21 +74,25 @@ const questions = [
   },
   {
     type: 'slider',
-    text: 'Approximately how much was your electricity bill last month?',
+    text: 'Approximately how much was your electricity bill last month  (In Rupees)?',
     min: 0,
     max: 100000,
     step: 1000,
     image: require('./assets/q6.jpg'),
-    imageFact: "If you don't remember thats okay. Kindly follow the link to get your bill: https://easybill.pk/",
+    imageFact: <div>
+      If you don't remember, that's okay. Kindly <a href="https://easybill.pk/" target="_blank" rel="noopener noreferrer" style={{ fontSize: '24px', color: '#1E425E' }}>click here</a> to check your bill.
+    </div>
   },
   {
     type: 'slider',
-    text: 'Approximately how much was your gas bill last month?',
+    text: 'Approximately how much was your gas bill last month  (In Rupees)?',
     min: 0,
     max: 50000,
     step: 1000,
     image: require('./assets/q7.jpg'),
-    imageFact: "If you don't remember thats okay. Kindly follow the link to get your bill: https://fescoonlinebillcheck.pk/sui-gas-bill/",
+    imageFact: <div>
+      If you don't remember, that's okay. Kindly <a href="https://fescoonlinebillcheck.pk/sui-gas-bill/" target="_blank" rel="noopener noreferrer" style={{ fontSize: '24px', color: '#1E425E' }}>click here</a> to check your bill.
+    </div>
   },
   {
     type: 'slider',
@@ -93,7 +101,7 @@ const questions = [
     max: 50,
     step: 0.5,
     image: require('./assets/q8.jpg'),
-    imageFact: "Insert fact about air travel here",
+    imageFact: "CO2 emissions from aviation fuel are 3.15 grams per gram of fuel.",
   },
   {
     type: 'slider',
@@ -102,7 +110,7 @@ const questions = [
     max: 50,
     step: 0.5,
     image: require('./assets/q9.jpg'),
-    imageFact: "Insert fact about air travel here",
+    imageFact: "A Boeing 737-400 travelling at a cruising speed of 780 km per hour emits 90 kg CO2 per passenger per hour.",
   },
 ];
 

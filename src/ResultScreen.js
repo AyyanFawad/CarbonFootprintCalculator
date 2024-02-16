@@ -22,9 +22,12 @@ const ResultScreen = () => {
     const commuteFootprint = location.state && location.state.commuteFootprint;
     const airTravelFootprint = location.state && location.state.airTravelFootprint;
 
+    const fact1Text = +((resultPercentage / 1.650027755).toFixed(2));
+    const fact2Text = +((resultPercentage / 0.8).toFixed(2));
+
 
     const data = {
-        labels: ['Vehicle', 'Electricity', 'Gas', 'Commute', 'Air Travel'],
+        labels: ['Private Transport', 'Electricity', 'Gas', 'Public Transport', 'Air Travel'],
         datasets: [
             {
                 label: 'Breakdown',
@@ -61,19 +64,18 @@ const ResultScreen = () => {
     const renderSuggestions = () => {
         switch (largestCategory) {
             case 'vehicle':
-                return <p>Consider carpooling, using public transportation, or switching to an electric vehicle to reduce your carbon footprint from commuting.</p>;
+                return <p>It seems that private transport makes up the largest portion of your carbon footprint.<br></br> Consider carpooling, using public transportation, or switching to an electric vehicle to reduce your carbon footprint.<br></br> Moreover, educate others whenever possible about their emissions and continue to play your part to help the planet.</p>;
             case 'electricity':
-                return <p>Use energy-efficient appliances, turn off lights when not in use, and consider renewable energy sources to lower your electricity consumption.</p>;
-            // Add cases for other categories
+                return <p>Your electricity consumption contributes the largest part of your carbon footprint. <br></br>Use energy-efficient appliances, turn off lights when not in use, and consider renewable energy sources to lower your electricity consumption.<br></br> Moreover, educate others whenever possible about their emissions and continue to play your part to help the planet.</p>;
             case 'commute':
-                return <p>Enter tips for reducing emissions when largest category is commute</p>
+                return <p>It seems that you are using public transport as much as possible as that is the largest contributor to your carbon footprint.<br></br> Keep up the good work and continue using public transport wherever possible to maintain your low emissions.<br></br> Moreover, educate others whenever possible about their emissions and continue to play your part to help the planet.</p>
             case 'airTravel':
-                return <p>Enter tips for reducing emissions when largest category is air travelEnter tips for reducing emissions when largest category is air travel</p>
+                return <p>Air travel is what makes up the largest part of your carbon footprint. <br></br>Consider taking more direct flights as taking off and landing use more fuel.<br></br> Try packing lighter as the heavier the plane, the more fuel it burns while travelling.<br></br> Consider travelling by train or bus within the country whenever possibe to reduce your carbon footprint.<br></br> Moreover, educate others whenever possible about their emissions and continue to play your part to help the planet.</p>
             case 'gas':
-                return <p>Enter tips for reducing emissions when largest category is gas</p>
+                return <p>Gas comsumption is the main contributor to your carbon footprint.<br></br> Consider switching to more energy efficient appliances or cooking in larger batches and storing leftovers to reduce your emissions.<br></br> Moreover, educate others whenever possible about their emissions and continue to play your part to help the planet.</p>
 
             default:
-                return <p>Explore various ways to reduce your overall carbon footprint and contribute to a more sustainable lifestyle.</p>;
+                return <p>You have a very well balanced carbon footprint and there is no significant area which is contributing to your emissions. <br></br>Some general tips to reduce your carbon footprint are reducing energy consumption, walking or carpooling whenever possible and properly practicing the reduce, reuse and recycle to reduce your footprint.<br></br> Moreover, educate others whenever possible about their emissions and continue to play your part to help the planet.</p>;
         }
     };
 
@@ -90,13 +92,13 @@ const ResultScreen = () => {
 
                 <div className='fact-1-rectangle'>
                     <div className='fact-1-text'>
-                        Your footprint is equal to x tonnes.
+                        You burnt the equivalent of {fact1Text} trees in the Chilgoza forest.
                     </div>
                 </div>
 
                 <div className='fact-2-rectangle'>
                     <div className='fact-2-text'>
-                        The average Pakistani emits xyz tonnes daily.
+                        Your emissions were {fact2Text} times the average person.
                     </div>
                 </div>
             </div>
