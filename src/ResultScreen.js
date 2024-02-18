@@ -86,19 +86,27 @@ const ResultScreen = () => {
                 <div className='result-rectangle'>
                     <div className="result-number">
                         <span>{resultPercentage}</span>
-                        <div className='result-number-text'>Tonnes CO2 emitted</div>
+                        <div className='result-number-text'>Tonnes of CO2 emitted</div>
                     </div>
                 </div>
 
                 <div className='fact-1-rectangle'>
                     <div className='fact-1-text'>
                         You burnt the equivalent of {fact1Text} trees in the Chilgoza forest.
+                        <br></br>
+                        {Array.from({ length: fact1Text }, (_, index) => (
+                            <img key={index} src={require("./assets/TreeIcon.png")} alt="icon" className='result-tree-icon' />
+                        ))}
                     </div>
                 </div>
 
                 <div className='fact-2-rectangle'>
                     <div className='fact-2-text'>
-                        Your emissions were {fact2Text} times the average person.
+                        Your emissions were {fact2Text} times the average Pakistani.
+                        <br></br>
+                        {Array.from({ length: fact2Text }, (_, index) => (
+                            <img key={index} src={require("./assets/PersonIcon.png")} alt="icon" className='result-person-icon' />
+                        ))}
                     </div>
                 </div>
             </div>

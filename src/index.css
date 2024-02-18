@@ -694,6 +694,7 @@ footer {
   /* padding: 10px 50px; */
   flex-wrap: wrap;
   flex-direction: row;
+  text-align: center;
 }
 
 .fact-1-rectangle {
@@ -725,6 +726,13 @@ footer {
   text-align: center;
 }
 
+/* Fact 1 icons */
+.result-tree-icon {
+  width: 50px;
+  height: 50px;
+  /* padding: 1rem; */
+}
+
 .fact-2-rectangle {
   /* width: 350px;
   height: 300px; */
@@ -753,6 +761,13 @@ footer {
   flex-direction: row;
   text-align: center;
 }
+
+.result-person-icon {
+  width: 40px;
+  height: 40px;
+  /* padding: 1rem; */
+}
+
 
 .breakdown-rectangle {
   /* width: 1075px;

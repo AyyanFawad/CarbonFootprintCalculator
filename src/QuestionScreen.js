@@ -20,14 +20,14 @@ const questions = [
       '30-45 mins',
       'More than 45 mins',
     ],
-    image: require('./assets/q1.jpg'), // Replace with the correct path for your image
+    image: require('./assets/q1.jpg'),
     imageFact: "Transportation is what usually makes up for the largest portion of an individuals carbon footprint.",
   },
   {
     type: 'mcq',
     text: 'What was your mode of transport?',
     options: ['Car', 'Bike', 'Rickshaw', 'Bus', 'Walk'],
-    image: require('./assets/q2.jpg'), // Replace with the correct path for your image
+    image: require('./assets/q2.jpg'),
     imageFact: "Over short to medium distances, walking or cycling are nearly always the lowest carbon way to travel. The carbon footprint of cycling one kilometer is usually in the range of 16 to 50 grams CO2eq per km",
   },
   {
@@ -47,7 +47,7 @@ const questions = [
       'Diesel',
       'CNG',
     ],
-    image: require('./assets/q1.jpg'), // Replace with the correct path for your image
+    image: require('./assets/q1.jpg'),
     imageFact: "Transportation is what usually makes up for the largest portion of an individuals carbon footprint.",
   },
   {
