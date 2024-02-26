@@ -7,6 +7,7 @@ import Gas from './gas';
 import Electricity from './elec';
 import CommutePublicTransport from './PublicTransport'
 import Flights from './airtravel';
+import Food_print from './food';
 
 
 const questions = [
@@ -73,6 +74,16 @@ const questions = [
     imageFact: "Sharing of resources such as transport and living is an extremely efficient way to reduce your carbon emission.",
   },
   {
+    type: 'mcq',
+    text: 'What best describes your diet from yesterday?',
+    options: [
+      'Vegetarian',
+      'Non - Vegetarian',
+    ],
+    image: require('./assets/q1.jpg'),
+    imageFact: "Transportation is what usually makes up for the largest portion of an individuals carbon footprint.",
+  },
+  {
     type: 'slider',
     text: 'Approximately how much was your electricity bill last month  (In Rupees)?',
     min: 0,
@@ -124,6 +135,7 @@ let q7Ans = 0;
 let q8Ans = 0;
 let q9Ans = 0;
 let q10Ans = 0;
+let q11Ans = 0;
 
 let carFootprint = 0;
 let commuteFootprint = 0;
@@ -131,6 +143,7 @@ let gasFootprint = 0;
 let electricityFootprint = 0;
 let totalFootprint = 0;
 let AirTravelFootprint = 0;
+let foodprint = 0;
 
 
 function QuestionScreen() {
@@ -226,11 +239,14 @@ function QuestionScreen() {
         case 9:
           q10Ans = answer;
           break
+        case 10:
+          q11Ans = answer;
+          break
         // case 
         default:
           break;
       }
-      if (currentQuestion === 9) {  // Assuming question 2 is related to commuting by car
+      if (currentQuestion === 10) {  // Assuming question 2 is related to commuting by car
         const myvehicle = new CommutePublicTransport(q2Ans, q1Ans, q3Ans);  // Adjust this based on your data structure
 
         // Use the imported function to calculate the carbon footprint
@@ -242,17 +258,20 @@ function QuestionScreen() {
         carFootprint = mycar.get_footprint(q5Ans);
         // console.log('Calculated car footprint:', carFootprint);
 
-        const gasInstance = new Gas(q8Ans / q6Ans);
+        const my_foodprint = new Food_print(q7Ans);
+        foodprint = my_foodprint.getCarbonFootprint();
+
+        const gasInstance = new Gas(q9Ans / q6Ans);
         gasFootprint = gasInstance.getCarbonFootprint();
         // console.log('Calculated gas footprint:', gasFootprint);
 
 
-        const electricityInstance = new Electricity(q7Ans / q6Ans);
+        const electricityInstance = new Electricity(q8Ans / q6Ans);
         electricityFootprint = electricityInstance.getCarbonFootprint();
         // console.log('Calculated electricity footprint:', electricityFootprint);
 
 
-        const air = new Flights(q9Ans, q10Ans);
+        const air = new Flights(q10Ans, q11Ans);
         AirTravelFootprint = air.getFootprints();
         // console.log('Calculated air footprint:', AirTravelFootprint);
 
@@ -280,6 +299,7 @@ function QuestionScreen() {
         const roundedElectricityFootprint = parseFloat(electricityFootprint.toFixed(2));
         const roundedGasFootprint = parseFloat(gasFootprint.toFixed(2));
         const roundedCommuteFootprint = parseFloat(commuteFootprint.toFixed(2));
+        const roundedFoodFootprint = parseFloat(foodprint.toFixed(2));
         const roundedAirTravelFootprint = parseFloat(AirTravelFootprint.toFixed(2));
 
         // Create an object containing individual and total footprints
@@ -289,6 +309,7 @@ function QuestionScreen() {
           gasFootprint: roundedGasFootprint,
           commuteFootprint: roundedCommuteFootprint,
           airTravelFootprint: roundedAirTravelFootprint,
+          foodFootprint: roundedFoodFootprint,
           totalFootprint: parseFloat(totalFootprint.toFixed(2)),
         };
 
