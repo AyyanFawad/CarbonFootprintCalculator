@@ -94,9 +94,10 @@ const ResultScreen = () => {
                     <div className='fact-1-text'>
                         You burnt the equivalent of {fact1Text} trees in the Chilgoza forest.
                         <br></br>
-                        {Array.from({ length: fact1Text }, (_, index) => (
+                        <div className='tree-icon-container'>{Array.from({ length: fact1Text }, (_, index) => (
                             <img key={index} src={require("./assets/TreeIcon.png")} alt="icon" className='result-tree-icon' />
-                        ))}
+                        ))}</div>
+
                     </div>
                 </div>
 
@@ -104,9 +105,10 @@ const ResultScreen = () => {
                     <div className='fact-2-text'>
                         Your emissions were {fact2Text} times the average Pakistani.
                         <br></br>
-                        {Array.from({ length: fact2Text }, (_, index) => (
+                        <div className='person-icon-container'>{Array.from({ length: fact2Text }, (_, index) => (
                             <img key={index} src={require("./assets/PersonIcon.png")} alt="icon" className='result-person-icon' />
-                        ))}
+                        ))}</div>
+
                     </div>
                 </div>
             </div>
@@ -119,6 +121,7 @@ const ResultScreen = () => {
             </div>
             <div className='footprint-insights'>
                 <div className='footprint-insights-text'>
+                    <div className='insights-heading'>Heres how you can reduce your footprint:</div>
                     {renderSuggestions()}
                 </div>
 

@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap');
 
+@font-face {
+  font-family: bliss;
+  src: url(./fonts/Bliss2R.otf);
+}
+
 
 body {
   margin: 0;
   padding: 0;
+  font-family: bliss;
 }
 
 /* app css */
@@ -44,7 +50,7 @@ body {
   /* background-color: #000; */
   padding: 2rem;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: bliss;
   font-size: 24px;
   color: #1E425E;
   /* height: 100%; */
@@ -62,7 +68,7 @@ body {
   /* background-color: #ADE28E; */
   color: #223949;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: bliss;
   font-size: 20px;
   font-style: normal;
   font-weight: 200;
@@ -76,7 +82,6 @@ body {
 /* Styling for MCQ questions */
 .mcq-question {
   padding-top: 2rem;
-  /* Adjust as needed */
 }
 
 .mcq-question button {
@@ -101,9 +106,7 @@ body {
 /* Styling for Slider questions */
 .slider-question input[type="range"] {
   width: 100%;
-  /* Adjust the width as needed */
   margin: 10px 0;
-  /* Adjust margin as needed */
   height: 20px;
   color: #ADE28E;
   background-color: #ADE28E;
@@ -112,14 +115,6 @@ body {
 
 .navigation-buttons {
   display: flex;
-  /* position: relative; */
-  /* justify-content: space-between; */
-  /* justify-content: space-between; */
-  /* margin-top: 0%; */
-  /* width: 20%; */
-  /* margin-left: 60%; */
-  /* Adjust the width as needed */
-  /* padding: 15px 20px; */
   align-self: center;
   padding-top: 2rem;
   column-gap: 2rem;
@@ -150,7 +145,7 @@ body {
   padding-top: 2rem;
   color: #223949;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: bliss;
   font-size: 20px;
   font-style: normal;
   font-weight: 200;
@@ -223,7 +218,6 @@ header nav img {
 }
 
 .global-footprint-image-container {
-  /* Set a specific width or max-width for the image if needed */
   /* width: 50%; */
   flex: 1;
   padding: 2rem;
@@ -234,12 +228,7 @@ header nav img {
 }
 
 .text-content {
-  /* text-align: justify; */
-  /* max-width: 45%; */
   flex: 1;
-  /* padding-right: 20px; */
-  /* padding-bottom: 20px;
-  padding-right: 20px; */
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -248,7 +237,7 @@ header nav img {
 
 .carbon-footprint-title {
   color: #008269;
-  font-family: 'Open Sans', sans-serif;
+  font-family: bliss;
   font-size: 50px;
   font-weight: 600;
   line-height: normal;
@@ -258,7 +247,8 @@ header nav img {
 
 .carbon-footprint-description {
   color: #223949;
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: bliss;
   font-size: 20px;
   font-weight: 400;
   line-height: normal;
@@ -306,9 +296,6 @@ header nav img {
 /* section 2  */
 .section-with-rectangles {
   display: flex;
-  /* flex-direction: row; */
-  /* justify-content: center; */
-  /* column-gap: 10px; */
   justify-content: space-between;
   align-items: stretch;
   box-sizing: border-box;
@@ -320,22 +307,12 @@ header nav img {
 .small-rectangle {
   background-color: #a8d9dd80;
   flex: 1;
-  /* padding-top: 50px; */
   padding: 2rem;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
 .white-box {
-  /* background-color: #FFFFFF; */
-  /* padding-top: 50px; */
-  /* top: 50%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
-  /* This centers the box */
-  /* margin-left: 150px; */
-  /* Adjust as needed to move box to the right */
-  /* background-color: #e4d5b7; */
   background-color: #FAF0E6;
   flex: 2;
   padding: 2rem;
@@ -345,7 +322,7 @@ header nav img {
 
 .small-rectangle-title {
   color: #4c6880;
-  font-family: "Oooh Baby-Regular", Helvetica, sans-serif;
+  font-family: bliss;
   font-size: 40px;
   font-weight: 400;
   text-align: center;
@@ -355,7 +332,7 @@ header nav img {
 .white-box-title {
   /* color: #D9B99B; */
   color: #C19A6B;
-  font-family: "Oooh Baby-Regular", Helvetica, sans-serif;
+  font-family: bliss;
   font-size: 40px;
   font-weight: 400;
   text-align: center;
@@ -364,7 +341,7 @@ header nav img {
 
 .calculator-description {
   color: #4c6880;
-  font-family: "Open Sans-Regular", Helvetica;
+  font-family: bliss;
   font-size: 25px;
   font-weight: 400;
   text-align: justify;
@@ -373,7 +350,7 @@ header nav img {
 
 .environment-description {
   color: #C19A6B;
-  font-family: "Open Sans-Regular", Helvetica;
+  font-family: bliss;
   font-size: 25px;
   font-weight: 400;
   text-align: justify;
@@ -428,16 +405,14 @@ header nav img {
   /* Adjust as needed */
   font-weight: 400;
   text-align: center;
-  /* Adjust text alignment as needed */
   /* Other font styles */
   /* padding-left: 40px; */
 }
 
 .glossary-description {
   /* width: 70%; */
-  /* Adjust as needed, this is for the text part */
   color: #223949;
-  font-family: "Open Sans-Regular", Helvetica;
+  font-family: bliss;
   font-size: 20px;
   font-weight: 400;
   padding: 2rem;
@@ -450,20 +425,7 @@ header nav img {
 }
 
 .gb-image {
-  /* position: absolute; */
-  /* Adjust the top and left properties to reposition the image */
-  /* top: -50px; */
-  /* Example value, adjust as needed */
-  /* left: -50px; */
-  /* Move the image to the left; adjust this value as needed */
-
-  /* If the image is too large, you can also adjust its size */
   width: 100%;
-  /* Adjust the width if necessary */
-  /* height: auto;
-  left: -50px; */
-  /* padding-right: 50px; */
-  /* Keep the aspect ratio */
 }
 
 .begin-now-button {
@@ -496,11 +458,6 @@ header nav img {
 
 .hero-image-container {
   display: flex;
-  /* Use flexbox to arrange child elements horizontally */
-  /* flex-direction: column; */
-  /* Stack child elements vertically */
-  /* align-items: center; */
-  /* Horizontally center child elements */
   flex: 1;
   padding: 2rem;
 }
@@ -517,7 +474,7 @@ header nav img {
 .whats-ur-cfc {
   color: #1E425E;
   text-align: center;
-  font-family: DIN Condensed;
+  font-family: bliss;
   font-size: 96px;
   font-style: normal;
   font-weight: 700;
@@ -535,7 +492,7 @@ header nav img {
   background: #1E425E;
   color: #FFFFFF;
   /* cursor: pointer; */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: bliss;
   font-size: 20px;
   font-weight: 700;
   /* margin-left: 25%; */
@@ -565,7 +522,7 @@ footer {
   background-color: #D6FFC2;
   color: white;
   /* padding: 2rem 0; */
-  font-family: 'Open Sans', sans-serif;
+  font-family: bliss;
   height: 250px;
   display: flex;
   flex-direction: column;
@@ -683,15 +640,15 @@ footer {
 .result-number {
   font-size: 100px;
   color: #008269;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: bliss;
   padding: 10px 50px;
 }
 
 .result-number-text {
   font-size: 30px;
   color: #008269;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   /* padding: 10px 50px; */
+  font-family: bliss;
   flex-wrap: wrap;
   flex-direction: row;
   text-align: center;
@@ -719,14 +676,19 @@ footer {
   font-size: 30px;
   padding-left: 10px;
   color: #1E425E;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   /* padding: 10px 50px; */
+  font-family: bliss;
   flex-wrap: wrap;
   flex-direction: row;
   text-align: center;
 }
 
 /* Fact 1 icons */
+.tree-icon-container {
+  padding: 1rem;
+}
+
+
 .result-tree-icon {
   width: 50px;
   height: 50px;
@@ -755,11 +717,15 @@ footer {
   font-size: 30px;
   padding-left: 10px;
   color: #15674d;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   /* padding: 10px 50px; */
+  font-family: bliss;
   flex-wrap: wrap;
   flex-direction: row;
   text-align: center;
+}
+
+.person-icon-container {
+  padding: 1rem;
 }
 
 .result-person-icon {
@@ -789,8 +755,8 @@ footer {
   padding-left: 10px;
   /* color: #FFFFFF; */
   color: #15674d;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   /* padding: 10px 50px; */
+  font-family: bliss;
   flex-wrap: wrap;
   flex-direction: row;
   text-align: center;
@@ -815,7 +781,15 @@ footer {
 
 .footprint-insights-text {
   font-size: 30px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: bliss;
   color: #1E425E;
   padding: 1rem;
+}
+
+.insights-heading {
+  font-size: 50px;
+  font-family: bliss;
+  color: #1E425E;
+  padding: 1rem;
+  text-align: center;
 }

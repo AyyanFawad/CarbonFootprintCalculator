@@ -10,7 +10,8 @@ import Layout from './Layout';
 import QuestionScreen from './QuestionScreen';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ResultScreen from './ResultScreen';
-
+import NewMainContent from './NewMainContent';
+import ScrollToTop from './ScrollToTop';
 
 
 const App = () => {
@@ -24,8 +25,10 @@ const App = () => {
     //   <Footer />
     // </div>
     <Router>
+      <ScrollToTop />
       <Switch>
-        <Route path="/" exact render={() => <Layout><MainContent /></Layout>} />
+        {/* <Route path="/" exact render={() => <Layout><MainContent /></Layout>} /> */}
+        <Route path="/" exact render={() => <Layout><NewMainContent /></Layout>} />
         <Route path="/question" render={() => <Layout><QuestionScreen /></Layout>} />
         <Route path="/hero" render={() => <Layout><Hero /></Layout>} />
         <Route path="/result" render={() => <Layout><ResultScreen /></Layout>} />
