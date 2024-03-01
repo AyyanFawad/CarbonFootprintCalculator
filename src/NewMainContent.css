@@ -185,3 +185,20 @@
     top: 10%;
     right: 0;
 }
+
+.Second-Calculator-Button {
+    background-color: #C19A6B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: bliss;
+    margin-top: 20px;
+    /* Adjust as needed */
+    cursor: pointer;
+}
+
+.Second-Calculator-Button:hover {
+    background-color: #e0b08e;
+}

@@ -22,8 +22,8 @@ const ResultScreen = () => {
     const commuteFootprint = location.state && location.state.commuteFootprint;
     const airTravelFootprint = location.state && location.state.airTravelFootprint;
 
-    const fact1Text = +((resultPercentage / 1.650027755).toFixed(2));
-    const fact2Text = +((resultPercentage / 0.8).toFixed(2));
+    const fact1Text = Math.floor(+((resultPercentage / 1.650027755).toFixed(2)));
+    const fact2Text = Math.floor(+((resultPercentage / 0.8).toFixed(2)));
 
 
     const data = {
