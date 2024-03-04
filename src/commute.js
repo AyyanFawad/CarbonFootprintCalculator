@@ -6,10 +6,12 @@ class CommuteTransport {
     }
 
     getCarbonFootprintRickshaw() {
-        const mileage = 35 // km/L
-        const Distance = 40 * (this.Time/60) ;
-        const Fuel = Distance / mileage ; 
-        const averageCarbonFootprint = Fuel * (2.3/907.2);
+        // const mileage = 35 // km/L
+        // const Distance = 40 * (this.Time/60) ;
+        // const Fuel = Distance / mileage ; 
+        // const averageCarbonFootprint = Fuel * (2.3/907.2);
+        const foot = 27.18*60; //g per second -> minute
+        const averageCarbonFootprint = ((foot * this.Time)/1000)/907.2
         if (this.cp >= 1){
             return averageCarbonFootprint / this.cp;
         }
