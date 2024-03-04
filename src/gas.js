@@ -69,7 +69,7 @@ class Gas {
     getCarbonFootprint() {
         const CM = this.moneyToUnits();
         const averageCarbonFootprint = CM * this.footprint;
-        return averageCarbonFootprint;
+        return averageCarbonFootprint/30;
     }
 }
 

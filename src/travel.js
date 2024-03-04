@@ -2,7 +2,7 @@ class Flights {
 
     constructor(hours_personal,hours_business) {
 
-        this.footprint = 242/907.2; //kg -> tons
+        this.footprint = 90/907.2; //kg -> tons
 
         this.p_hours = hours_personal;
 
